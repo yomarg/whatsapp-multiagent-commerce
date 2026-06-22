@@ -1,0 +1,61 @@
+.health-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #1e1e1e;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.health-status.ok .pulse-dot {
+  background-color: #22c55e;
+}
+.health-status.ok .pulse-dot::after {
+  background-color: rgba(34, 197, 94, 0.4);
+}
+
+.health-status.error .pulse-dot {
+  background-color: #ef4444;
+}
+.health-status.error .pulse-dot::after {
+  background-color: rgba(239, 68, 68, 0.4);
+  animation-duration: 1s;
+}
+
+.health-status.loading .pulse-dot {
+  background-color: #eab308;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}

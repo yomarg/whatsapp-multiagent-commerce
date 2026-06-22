@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './HealthIndicator.css';
+import './HealthStatus.css';
 
-const HealthIndicator = () => {
-  const [status, setStatus] = useState('loading'); // 'ok', 'error', 'loading'
+const HealthStatus = () => {
+  const [status, setStatus] = useState('loading');
 
   useEffect(() => {
     const fetchHealth = async () => {
@@ -36,7 +36,7 @@ const HealthIndicator = () => {
   }, []);
 
   return (
-    <div className={`health-indicator ${status}`}>
+    <div className={`health-status ${status}`}>
       <span className="pulse-dot"></span>
       <span className="status-text">
         {status === 'ok' ? 'System Operational' : status === 'error' ? 'System Error' : 'Checking...'}
@@ -45,4 +45,4 @@ const HealthIndicator = () => {
   );
 };
 
-export default HealthIndicator;
+export default HealthStatus;
