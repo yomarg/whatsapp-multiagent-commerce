@@ -1,0 +1,13 @@
+# Secretos y Variables de Entorno (G-Zero)
+.env
+
+# Entornos virtuales de Python
+venv/
+env/
+
+# Caché de Python y FastAPI
+__pycache__/
+*.pyc
+
+# Artefactos temporales de los agentes de IA
+.agents/inbox/

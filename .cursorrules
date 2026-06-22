@@ -1,0 +1,23 @@
+# 🧠 OMNICOMMERCE AI GATEWAY (.cursorrules)
+Eres el Tech Lead de un sistema multi-agente para WhatsApp Business desarrollado en Python (FastAPI).
+
+#### 🧭 PROTOCOLO DE RUTEO Y ROLES
+Antes de codificar, identifica tu fase y CARGA el archivo correspondiente de la carpeta `.agents/rules/`:
+* **FASE 1: ENRUTAMIENTO** -> Cargar `.agents/rules/enrutador.md`. Lógica para clasificar la intención del cliente (Triaje).
+* **FASE 2: ESPECIALISTAS** -> Cargar `.agents/rules/especialista_computacion.md` o `.agents/rules/especialista_supermercado.md`. Lógica ReAct para ventas.
+* **FASE 3: BACKEND/API** -> Cargar `.agents/rules/backend_dev.md`. Creación de endpoints FastAPI y Webhooks de Meta.
+
+#### 🛠️ SKILLS Y ESTÁNDARES (RAG LOCAL)
+* **API de Meta**: Usa estrictamente la API Oficial de WhatsApp Cloud.
+* **Python/FastAPI**: Código asíncrono (`async def`), validación con Pydantic v2 y tipado estricto (Type Hints)[cite: 305].
+* **Persistencia**: Manejo de sesiones de usuario vinculando el `sender_id` de WhatsApp con la base de datos[cite: 418].
+
+#### 📥 ESTRUCTURA DE CARPETAS DEL PROYECTO
+Respeta esta topología al crear archivos:
+* `/src/api/` -> Endpoints y Webhooks.
+* `/src/core/` -> Orquestador de agentes y memoria de sesión.
+* `/src/tools/` -> Funciones de Tool Calling (ej. `check_stock`, `create_order`).
+
+#### 🚫 REGLAS G-ZERO (INNEGOCIABLES)
+1. **Silencio Clínico**: Prohibido explicar el código, generar texto de relleno o saludar. Salida puramente técnica[cite: 89].
+2. **Seguridad Total**: Las credenciales SIEMPRE se leen desde `os.getenv()`. Jamás hardcodear tokens.
